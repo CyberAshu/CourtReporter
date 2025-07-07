@@ -1,70 +1,269 @@
-# Getting Started with Create React App
+# Court Reporter Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive React-based dashboard application for court reporters to manage their daily tasks, jobs, payments, files, and schedules.
 
-## Available Scripts
+![Dashboard Preview](https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Court+Reporter+Dashboard)
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+### ✅ **Dashboard (Home Overview)**
+- **Today's Jobs**: Job list cards showing current day's assignments
+- **Upcoming Jobs**: Mini cards sorted by nearest dates  
+- **Pending Uploads**: Counter for jobs awaiting file upload
+- **Pending Payments**: Counter for unpaid jobs
+- **Notifications**: Badge icon with unread count
+- **Real-time data updates** on screen load
+- **Interactive Charts**: Case overview and statistics
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### ✅ **Profile Management**
+- **Profile Photo**: Optional image upload with preview
+- **Personal Information**: Full name, email, phone, role
+- **Address**: Editable text area
+- **Certifications**: File upload and management
+- **Quick Stats**: Cases, ratings, experience overview
+- **Bio Section**: Personal description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### ✅ **Settings & Preferences**
+- **Language Selection**: Multi-language support (EN, ES, FR, DE, IT)
+- **Notifications**: Toggle for Email, push, SMS notifications
+- **Calendar Sync**: OAuth integration with Google/Apple Calendar
+- **Security**: Password change, 2FA, session management
+- **Account Management**: Safe account deletion with confirmation
 
-### `npm test`
+### ✅ **Authentication**
+- **Secure Login**: Email and password with validation
+- **Password Reset**: Forgot password functionality
+- **Session Management**: Automatic logout and session persistence
+- **Demo Credentials**: Built-in demo account for testing
+- **Form Validation**: Real-time field validation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ✅ **Bill Management**
+- **Payment Modes**: "Pay When Billed" vs "Pay When Paid" options
+- **Invoice Tracking**: Bill date, due date, amount, status
+- **Status Management**: Paid, Unpaid, Overdue tracking
+- **Invoice Download**: Generate and download invoices
+- **Payment Analytics**: Summary statistics and totals
 
-### `npm run build`
+### ✅ **Search Bills**
+- **Advanced Search**: Filter by Job ID, date range, payment status
+- **Invoice Finder**: Comprehensive search functionality
+- **Results Table**: Detailed bill information with actions
+- **Export Options**: Download and view capabilities
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ✅ **Notifications Center**
+- **Alert Types**: Job alerts, payment confirmations, reminders, feedback
+- **Priority Levels**: High, medium, low priority classification
+- **Mark as Read**: Individual and bulk read management
+- **Real-time Updates**: Live notification feed
+- **Filtering**: View all, unread, or read notifications
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### ✅ **Files Directory**
+- **Document Management**: Upload, view, download, delete files
+- **File Types**: Support for PDF, DOCX, MP4, JPG, and more
+- **Job Association**: Link files to specific court cases
+- **Search & Filter**: Find files by name, type, or job
+- **File Statistics**: Track total files, sizes, and uploads
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### ✅ **Holiday Planner**
+- **Time Off Requests**: Submit vacation and leave requests
+- **Date Selection**: Start and end date picker with validation
+- **Approval Status**: Pending, approved, rejected tracking
+- **Calendar Blocking**: Automatic availability calendar updates
+- **Request Management**: Edit and delete pending requests
 
-### `npm run eject`
+## 🛠 Technology Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Frontend**: React 19.1.0 with functional components and hooks
+- **Styling**: Tailwind CSS 3.4.17 for responsive design
+- **Icons**: Lucide React for consistent iconography
+- **Charts**: Recharts 3.0.2 for data visualization
+- **Routing**: React Router DOM 7.6.3 for navigation
+- **Components**: Headless UI for accessible components
+- **Testing**: React Testing Library for component testing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🎨 Design Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Modern UI**: Clean, professional interface matching the provided theme
+- **Responsive Design**: Fully responsive for all device sizes (mobile, tablet, desktop)
+- **Dark Sidebar**: Modern dark sidebar with blue accent colors
+- **Interactive Charts**: Dynamic data visualization with hover effects
+- **Smooth Animations**: Fade-in and slide-in transitions
+- **Professional Cards**: Shadow effects and hover states
+- **Color-coded Status**: Visual status indicators throughout
+- **Accessible Design**: WCAG-compliant interface elements
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🚀 Quick Start
 
-## Learn More
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd court-reporter-dashboard
+   ```
 
-### Code Splitting
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Start development server**
+   ```bash
+   npm start
+   ```
 
-### Analyzing the Bundle Size
+4. **Open in browser**
+   Navigate to `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Available Scripts
 
-### Making a Progressive Web App
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run eject` - Ejects from Create React App (one-way operation)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🔐 Demo Credentials
 
-### Advanced Configuration
+For testing purposes, use these demo credentials:
+- **Email**: demo@court.com
+- **Password**: demo123
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+*Or enter any email and password combination to access the demo*
 
-### Deployment
+## 📁 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+src/
+├── components/
+│   ├── Sidebar.js          # Navigation sidebar with responsive design
+│   └── Header.js           # Top header with search and user menu
+├── pages/
+│   ├── Dashboard.js        # Main dashboard with overview
+│   ├── Login.js           # Authentication page
+│   ├── Profile.js         # User profile management
+│   ├── Settings.js        # Application preferences
+│   ├── BillManagement.js  # Invoice and payment tracking
+│   ├── SearchBills.js     # Bill search functionality
+│   ├── Notifications.js   # Notification center
+│   ├── FilesDirectory.js  # Document management
+│   └── HolidayPlanner.js  # Time off management
+├── App.js                 # Main application component
+├── App.css               # Global styles and Tailwind imports
+└── index.js              # Application entry point
+```
 
-### `npm run build` fails to minify
+## 📱 Responsive Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Mobile (320px - 768px)
+- Collapsible sidebar with overlay
+- Stacked cards and components
+- Touch-friendly buttons and interactions
+- Optimized typography and spacing
+
+### Tablet (768px - 1024px)
+- Adaptive grid layouts
+- Balanced sidebar and content
+- Optimized for touch and mouse interaction
+
+### Desktop (1024px+)
+- Full sidebar navigation
+- Multi-column layouts
+- Hover effects and tooltips
+- Enhanced data visualization
+
+## 🔧 Key Features Implementation
+
+### State Management
+- React hooks for local component state
+- Context for global user state
+- LocalStorage for session persistence
+- Form validation and error handling
+
+### Data Visualization
+- Interactive charts using Recharts
+- Real-time data updates
+- Color-coded metrics and KPIs
+- Progress indicators and statistics
+
+### User Experience
+- Intuitive navigation with active state indicators
+- Loading states and feedback messages
+- Confirmation dialogs for destructive actions
+- Smooth transitions and animations
+- Comprehensive form validation
+
+## 🌐 Browser Support
+
+- ✅ Chrome (latest)
+- ✅ Firefox (latest)  
+- ✅ Safari (latest)
+- ✅ Edge (latest)
+- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
+
+## 🎯 Performance Features
+
+- **Code Splitting**: Automatic route-based code splitting
+- **Lazy Loading**: Components loaded on demand
+- **Optimized Images**: Responsive image handling
+- **Efficient Rendering**: React.memo and useMemo optimizations
+- **Bundle Optimization**: Webpack optimizations for production
+
+## 🧪 Testing
+
+Run the test suite:
+```bash
+npm test
+```
+
+Tests include:
+- Component rendering tests
+- User interaction tests
+- Form validation tests
+- Navigation tests
+
+## 🚀 Deployment
+
+### Build for Production
+```bash
+npm run build
+```
+
+### Deploy to Various Platforms
+- **Netlify**: Connect your repository for automatic deployments
+- **Vercel**: Import your project for instant deployments
+- **GitHub Pages**: Use `gh-pages` package for GitHub hosting
+- **AWS S3**: Upload build files to S3 bucket
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Support
+
+For support and questions:
+- Create an issue in the repository
+- Contact the development team
+- Check the documentation
+
+## 🔗 Links
+
+- [React Documentation](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide Icons](https://lucide.dev/)
+- [Recharts](https://recharts.org/)
+
+---
+
+**Built with ❤️ for Court Reporters**
