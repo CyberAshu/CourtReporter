@@ -17,8 +17,8 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [user, setUser] = useState({
-    name: 'John Doe',
-    email: 'john.doe@example.com',
+    name: 'Tarun Goud',
+    email: 'tarun@gmail.com',
     role: 'Court Reporter',
     avatar: null
   });

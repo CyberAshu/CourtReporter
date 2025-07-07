@@ -193,19 +193,6 @@ const Login = ({ onLogin }) => {
               )}
             </button>
           </form>
-
-          {/* Demo Credentials */}
-          <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-600 text-center mb-2">Demo Credentials:</p>
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              <div>
-                <strong>Email:</strong> demo@court.com
-              </div>
-              <div>
-                <strong>Password:</strong> demo123
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Footer */}
