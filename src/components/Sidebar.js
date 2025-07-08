@@ -11,8 +11,8 @@ import {
   Calendar,
   LogOut,
   X,
-  BarChart3,
-  Gavel
+  Gavel,
+  Briefcase
 } from 'lucide-react';
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen, onLogout }) => {
@@ -20,6 +20,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, onLogout }) => {
 
   const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: Home },
+    { name: 'Jobs', href: '/jobs', icon: Briefcase },
     { name: 'Profile', href: '/profile', icon: User },
     { name: 'Bill Management', href: '/bills', icon: CreditCard },
     { name: 'Search Bills', href: '/search-bills', icon: Search },

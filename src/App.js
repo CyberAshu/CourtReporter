@@ -10,6 +10,7 @@ import SearchBills from './pages/SearchBills';
 import Notifications from './pages/Notifications';
 import FilesDirectory from './pages/FilesDirectory';
 import HolidayPlanner from './pages/HolidayPlanner';
+import Jobs from './pages/Jobs';
 import Login from './pages/Login';
 import './App.css';
 
@@ -84,6 +85,7 @@ function App() {
               <Route path="/notifications" element={<Notifications />} />
               <Route path="/files" element={<FilesDirectory />} />
               <Route path="/holidays" element={<HolidayPlanner />} />
+              <Route path="/jobs" element={<Jobs />} />
               <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           </main>
