@@ -15,6 +15,7 @@ import {
 
 const Jobs = () => {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [formVisible, setFormVisible] = useState(false);
   const [jobs, setJobs] = useState([
     {
       id: 1,
@@ -161,7 +162,6 @@ const Jobs = () => {
 
   const statusCounts = getStatusCounts();
 
-  const [showModal, setShowModal] = useState(false);
   const [newJob, setNewJob] = useState({
     title: '',
     status: 'New',
@@ -177,7 +177,6 @@ const Jobs = () => {
 
   const handleAddNewJob = () => {
     setJobs([...jobs, { ...newJob, id: jobs.length + 1 }]);
-    setShowModal(false);
     setNewJob({
       title: '',
       status: 'New',
@@ -202,123 +201,184 @@ const Jobs = () => {
             Manage and track all your court reporting assignments
           </p>
         </div>
-        <button
-          className="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-700 flex items-center"
-          onClick={() => setShowModal(true)}
-        >
-          <Plus className="h-4 w-4 mr-2" />
-          Add New Job
-        </button>
-
-        {showModal && (
-          <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
-              <div className="flex items-center mb-4">
-                <h3 className="text-lg font-semibold text-gray-900 flex-1">Add New Job</h3>
-                <button onClick={() => setShowModal(false)} className="text-gray-600 hover:text-gray-900">
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-              <form
-                className="space-y-4"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleAddNewJob();
-                }}
-              >
-                <input
-                  className="w-full border p-2 rounded"
-                  placeholder="Title"
-                  value={newJob.title}
-                  onChange={(e) =>
-                    setNewJob({ ...newJob, title: e.target.value })
-                  }
-                />
-                <input
-                  className="w-full border p-2 rounded"
-                  placeholder="Date"
-                  type="date"
-                  value={newJob.date}
-                  onChange={(e) =>
-                    setNewJob({ ...newJob, date: e.target.value })
-                  }
-                />
-                <input
-                  className="w-full border p-2 rounded"
-                  placeholder="Time"
-                  value={newJob.time}
-                  onChange={(e) =>
-                    setNewJob({ ...newJob, time: e.target.value })
-                  }
-                />
-                <input
-                  className="w-full border p-2 rounded"
-                  placeholder="Location"
-                  value={newJob.location}
-                  onChange={(e) =>
-                    setNewJob({ ...newJob, location: e.target.value })
-                  }
-                />
-                <input
-                  className="w-full border p-2 rounded"
-                  placeholder="Client"
-                  value={newJob.client}
-                  onChange={(e) =>
-                    setNewJob({ ...newJob, client: e.target.value })
-                  }
-                />
-                <input
-                  className="w-full border p-2 rounded"
-                  placeholder="Judge"
-                  value={newJob.judge}
-                  onChange={(e) =>
-                    setNewJob({ ...newJob, judge: e.target.value })
-                  }
-                />
-                <input
-                  className="w-full border p-2 rounded"
-                  placeholder="Type"
-                  value={newJob.type}
-                  onChange={(e) =>
-                    setNewJob({ ...newJob, type: e.target.value })
-                  }
-                />
-                <input
-                  className="w-full border p-2 rounded"
-                  placeholder="Duration"
-                  value={newJob.duration}
-                  onChange={(e) =>
-                    setNewJob({ ...newJob, duration: e.target.value })
-                  }
-                />
-                <input
-                  className="w-full border p-2 rounded"
-                  placeholder="Rate"
-                  value={newJob.rate}
-                  onChange={(e) =>
-                    setNewJob({ ...newJob, rate: e.target.value })
-                  }
-                />
-                <div className="flex justify-end space-x-2">
-                  <button
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700"
-                  >
-                    Add Job
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Add New Job Button */}
+      <button
+        className="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-700 flex items-center mb-4"
+        onClick={() => setFormVisible(!formVisible)}
+      >
+        <Plus className="h-4 w-4 mr-2" />
+        {formVisible ? 'Cancel' : 'Add New Job'}
+      </button>
+
+      {/* Add New Job Form */}
+      {formVisible && (
+        <div className="bg-white rounded-xl shadow-sm border p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Add New Job</h2>
+        <form
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleAddNewJob();
+            setFormVisible(false);
+          }}
+        >
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Job Title</label>
+            <input
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              placeholder="Enter job title"
+              value={newJob.title}
+              onChange={(e) =>
+                setNewJob({ ...newJob, title: e.target.value })
+              }
+              required
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+            <input
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              type="date"
+              value={newJob.date}
+              onChange={(e) =>
+                setNewJob({ ...newJob, date: e.target.value })
+              }
+              required
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Time</label>
+            <input
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              placeholder="09:00 AM"
+              value={newJob.time}
+              onChange={(e) =>
+                setNewJob({ ...newJob, time: e.target.value })
+              }
+              required
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+            <input
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              placeholder="Courtroom or location"
+              value={newJob.location}
+              onChange={(e) =>
+                setNewJob({ ...newJob, location: e.target.value })
+              }
+              required
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Client</label>
+            <input
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              placeholder="Client name"
+              value={newJob.client}
+              onChange={(e) =>
+                setNewJob({ ...newJob, client: e.target.value })
+              }
+              required
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Judge</label>
+            <input
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              placeholder="Judge name"
+              value={newJob.judge}
+              onChange={(e) =>
+                setNewJob({ ...newJob, judge: e.target.value })
+              }
+              required
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Case Type</label>
+            <select
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              value={newJob.type}
+              onChange={(e) =>
+                setNewJob({ ...newJob, type: e.target.value })
+              }
+              required
+            >
+              <option value="">Select case type</option>
+              <option value="Family Law">Family Law</option>
+              <option value="Criminal">Criminal</option>
+              <option value="Civil">Civil</option>
+              <option value="Traffic">Traffic</option>
+              <option value="Corporate">Corporate</option>
+            </select>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Duration</label>
+            <input
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              placeholder="2 hours"
+              value={newJob.duration}
+              onChange={(e) =>
+                setNewJob({ ...newJob, duration: e.target.value })
+              }
+              required
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Rate</label>
+            <input
+              className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              placeholder="$75/hour"
+              value={newJob.rate}
+              onChange={(e) =>
+                setNewJob({ ...newJob, rate: e.target.value })
+              }
+              required
+            />
+          </div>
+          
+          <div className="md:col-span-2 lg:col-span-3 flex justify-end space-x-3 mt-4">
+            <button
+              type="button"
+              onClick={() => {
+                setNewJob({
+                  title: '',
+                  status: 'New',
+                  date: '',
+                  time: '',
+                  location: '',
+                  client: '',
+                  judge: '',
+                  type: '',
+                  duration: '',
+                  rate: '',
+                });
+              }}
+              className="px-6 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              Clear Form
+            </button>
+            <button
+              type="submit"
+              className="px-6 py-2 bg-primary-600 text-white rounded-lg text-sm font-medium hover:bg-primary-700 transition-colors flex items-center"
+            >
+              <Plus className="h-4 w-4 mr-2" />
+              Add Job
+            </button>
+          </div>
+        </form>
+        </div>
+      )}
 
       {/* Filter Tabs */}
       <div className="bg-white rounded-xl shadow-sm border">
